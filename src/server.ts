@@ -3,6 +3,7 @@ import * as env from 'env-var';
 import log from './log';
 import * as swaggerUi from 'swagger-ui-express';
 import junctionsRoute from './routes/junctions';
+import metersRoute from './routes/meters';
 
 let swaggerJson;
 try {
@@ -38,6 +39,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJson));
 
 // Mount a /junctions endpoint that uses the junctions router
 app.use('/junctions', junctionsRoute);
+app.use('/meters', metersRoute);
 
 app.listen(PORT, (err: any) => {
   if (err) {
