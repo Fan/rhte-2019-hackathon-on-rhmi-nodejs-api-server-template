@@ -3,10 +3,6 @@ import { query } from '../db';
 
 const junctionsRoute = express.Router();
 
-junctionsRoute.get('/', async (req, res) => {
-  res.status(501).end('not implemented');
-});
-
 type JunctionObject = {
   junction_id: number;
   count_ns: number;
