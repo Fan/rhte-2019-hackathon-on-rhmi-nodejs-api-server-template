@@ -3,8 +3,10 @@ import * as env from 'env-var';
 import log from './log';
 
 const connectionString = env
-  .get('PG_CONNECTION_STRING')
-  .required()
+  .get(
+    'PG_CONNECTION_STRING',
+    'postgresql://evals21:Password1@localhost:5432/city-info'
+  )
   .asUrlString();
 
 const pool = new Pool({ connectionString });

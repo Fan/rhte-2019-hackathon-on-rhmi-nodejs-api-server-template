@@ -1,0 +1,258 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "New API",
+        "description": "A brand new API with no content.  Go nuts!",
+        "version": "1.0"
+    },
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/meters": {
+            "get": {
+                "summary": "List All Meters",
+                "description": "Gets a list of all `Meter` entities.",
+                "operationId": "getMeters",
+                "responses": {
+                    "200": {
+                        "description": "Successful response - returns an array of `Meter` entities.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Meter"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a Meter",
+                "description": "Creates a new instance of a `Meter`.",
+                "operationId": "createMeter",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "A new `Meter` to be created.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Meter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response."
+                    }
+                }
+            }
+        },
+        "/meters/{meterId}": {
+            "get": {
+                "summary": "Get a Meter",
+                "description": "Gets the details of a single instance of a `Meter`.",
+                "operationId": "getMeter",
+                "responses": {
+                    "200": {
+                        "description": "Successful response - returns a single `Meter`.",
+                        "schema": {
+                            "$ref": "#/definitions/Meter"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a Meter",
+                "description": "Updates an existing `Meter`.",
+                "operationId": "updateMeter",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Updated `Meter` information.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Meter"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Successful response."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a Meter",
+                "description": "Deletes an existing `Meter`.",
+                "operationId": "deleteMeter",
+                "responses": {
+                    "204": {
+                        "description": "Successful response."
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "name": "meterId",
+                    "in": "path",
+                    "description": "A unique identifier for a `Meter`.",
+                    "required": true,
+                    "type": "string"
+                }
+            ]
+        },
+        "/junctions": {
+            "get": {
+                "summary": "List All Junctions",
+                "description": "Gets a list of all `Junction` entities.",
+                "operationId": "getJunctions",
+                "responses": {
+                    "200": {
+                        "description": "Successful response - returns an array of `Junction` entities.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Junction"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create a Junction",
+                "description": "Creates a new instance of a `Junction`.",
+                "operationId": "createJunction",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "A new `Junction` to be created.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Junction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successful response."
+                    }
+                }
+            }
+        },
+        "/junctions/{junctionId}": {
+            "get": {
+                "summary": "Get a Junction",
+                "description": "Gets the details of a single instance of a `Junction`.",
+                "operationId": "getJunction",
+                "responses": {
+                    "200": {
+                        "description": "Successful response - returns a single `Junction`.",
+                        "schema": {
+                            "$ref": "#/definitions/Junction"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update a Junction",
+                "description": "Updates an existing `Junction`.",
+                "operationId": "updateJunction",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Updated `Junction` information.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Junction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Successful response."
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete a Junction",
+                "description": "Deletes an existing `Junction`.",
+                "operationId": "deleteJunction",
+                "responses": {
+                    "204": {
+                        "description": "Successful response."
+                    }
+                }
+            },
+            "parameters": [
+                {
+                    "name": "junctionId",
+                    "in": "path",
+                    "description": "A unique identifier for a `Junction`.",
+                    "required": true,
+                    "type": "string"
+                }
+            ]
+        }
+    },
+    "definitions": {
+        "Meter": {
+            "title": "Root Type for Meter",
+            "description": "The root of the Meter type's schema.",
+            "type": "object",
+            "properties": {
+                "meter_id": {
+                    "type": "string"
+                },
+                "last_updated": {
+                    "type": "string"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "string"
+                },
+                "longitude": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "example": "{\n  \"meter_id\": \"Integer\",\n  \"last_updated\": \"Timestamp\",\n  \"address\": \"String\",\n  \"latitude\": \"Float\",\n  \"longitude\": \"Float\",\n  \"status\": \"String\"\n}"
+        },
+        "Junction": {
+            "title": "Root Type for Junction",
+            "description": "The root of the Junction type's schema.",
+            "type": "object",
+            "properties": {
+                "junction_id": {
+                    "type": "string"
+                },
+                "last_updated": {
+                    "type": "string"
+                },
+                "prev_east_west_count": {
+                    "type": "string"
+                },
+                "prev_north_south_count": {
+                    "type": "string"
+                },
+                "24_hr_total_north_south_count": {
+                    "type": "string"
+                },
+                "24_hr_total_east_west_count": {
+                    "type": "string"
+                }
+            },
+            "example": "{\n  \"junction_id\": \"Integer\",\n  \"last_updated\": \"Timestamp\",\n  \"prev_east_west_count\": \"Integer\",\n  \"prev_north_south_count\": \"Integer\",\n  \"24_hr_total_north_south_count\": \"Integer\",\n  \"24_hr_total_east_west_count\": \"Integer\"\n}"
+        }
+    }
+}
